@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct Budget_VoyageApp: App {
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboarding {
+                OnBoardingView()
+            } else {
+                CreateTripView()
+            }
         }
     }
 }

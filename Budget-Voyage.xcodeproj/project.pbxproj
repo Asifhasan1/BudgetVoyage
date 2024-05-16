@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E00EF9112BF6816A00BB26EF /* Budget_VoyageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF9102BF6816A00BB26EF /* Budget_VoyageApp.swift */; };
-		E00EF9132BF6816A00BB26EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF9122BF6816A00BB26EF /* ContentView.swift */; };
+		E00EF9132BF6816A00BB26EF /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF9122BF6816A00BB26EF /* OnBoardingView.swift */; };
 		E00EF9152BF6816B00BB26EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E00EF9142BF6816B00BB26EF /* Assets.xcassets */; };
 		E00EF9182BF6816B00BB26EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E00EF9172BF6816B00BB26EF /* Preview Assets.xcassets */; };
 		E00EF91F2BF6841100BB26EF /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF91E2BF6841100BB26EF /* PageModel.swift */; };
@@ -24,7 +24,7 @@
 /* Begin PBXFileReference section */
 		E00EF90D2BF6816A00BB26EF /* Budget-Voyage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget-Voyage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00EF9102BF6816A00BB26EF /* Budget_VoyageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget_VoyageApp.swift; sourceTree = "<group>"; };
-		E00EF9122BF6816A00BB26EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E00EF9122BF6816A00BB26EF /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		E00EF9142BF6816B00BB26EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E00EF9172BF6816B00BB26EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E00EF91E2BF6841100BB26EF /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
@@ -48,6 +48,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B786732BF697E70001957D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E00EF91E2BF6841100BB26EF /* PageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16B786742BF697EF0001957D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E00EF9222BF6846E00BB26EF /* SplashScreenView.swift */,
+				16B786762BF6981D0001957D /* OnBoarding Screens */,
+				E00EF9242BF6848E00BB26EF /* CreateTripView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16B786752BF697F50001957D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		16B786762BF6981D0001957D /* OnBoarding Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E00EF9202BF6844500BB26EF /* PageView.swift */,
+				E00EF9122BF6816A00BB26EF /* OnBoardingView.swift */,
+			);
+			path = "OnBoarding Screens";
+			sourceTree = "<group>";
+		};
 		E00EF9042BF6816A00BB26EF = {
 			isa = PBXGroup;
 			children = (
@@ -68,12 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				E00EF9102BF6816A00BB26EF /* Budget_VoyageApp.swift */,
-				E00EF9122BF6816A00BB26EF /* ContentView.swift */,
+				16B786732BF697E70001957D /* Model */,
+				16B786742BF697EF0001957D /* View */,
+				16B786752BF697F50001957D /* ViewModel */,
 				E00EF92C2BF6850F00BB26EF /* MainNavigationView.swift */,
-				E00EF91E2BF6841100BB26EF /* PageModel.swift */,
-				E00EF9202BF6844500BB26EF /* PageView.swift */,
-				E00EF9222BF6846E00BB26EF /* SplashScreenView.swift */,
-				E00EF9242BF6848E00BB26EF /* CreateTripView.swift */,
 				E00EF9262BF684B400BB26EF /* ListsTripsView.swift */,
 				E00EF9282BF684D500BB26EF /* BudgetView.swift */,
 				E00EF92A2BF684F200BB26EF /* TripsView.swift */,
@@ -162,7 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E00EF92B2BF684F200BB26EF /* TripsView.swift in Sources */,
-				E00EF9132BF6816A00BB26EF /* ContentView.swift in Sources */,
+				E00EF9132BF6816A00BB26EF /* OnBoardingView.swift in Sources */,
 				E00EF9292BF684D500BB26EF /* BudgetView.swift in Sources */,
 				E00EF92D2BF6850F00BB26EF /* MainNavigationView.swift in Sources */,
 				E00EF9212BF6844500BB26EF /* PageView.swift in Sources */,
