@@ -19,7 +19,7 @@ struct CreateTripView: View {
                     .padding(.top, 20)
                 
                 NavigationLink {
-                    MainNavigationView()
+                    TripInformationFormView()
                         .navigationBarBackButtonHidden()
                 } label: {
                     Text("Create a Trip")
