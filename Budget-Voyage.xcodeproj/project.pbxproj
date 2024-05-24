@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E00EF9112BF6816A00BB26EF /* Budget_VoyageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF9102BF6816A00BB26EF /* Budget_VoyageApp.swift */; };
+		161C035D2C00CE56006BFB9F /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C035C2C00CE56006BFB9F /* Trip.swift */; };
+		161C035F2C00CFAF006BFB9F /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C035E2C00CFAF006BFB9F /* TripDetailView.swift */; };
+		161C03612C00D005006BFB9F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C03602C00D005006BFB9F /* MainView.swift */; };
+		167DE44C2BFE5E7C00BC5BAE /* TripInformationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167DE44B2BFE5E7C00BC5BAE /* TripInformationFormView.swift */; };
+		16E98DAB2BFD1D6500B26405 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E98DAA2BFD1D6500B26405 /* CircularProgressView.swift */; };
+		E00EF9112BF6816A00BB26EF /* Budget_Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF9102BF6816A00BB26EF /* Budget_Voyage.swift */; };
 		E00EF9132BF6816A00BB26EF /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00EF9122BF6816A00BB26EF /* OnBoardingView.swift */; };
 		E00EF9152BF6816B00BB26EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E00EF9142BF6816B00BB26EF /* Assets.xcassets */; };
 		E00EF9182BF6816B00BB26EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E00EF9172BF6816B00BB26EF /* Preview Assets.xcassets */; };
@@ -22,8 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161C035C2C00CE56006BFB9F /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		161C035E2C00CFAF006BFB9F /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailView.swift; sourceTree = "<group>"; };
+		161C03602C00D005006BFB9F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		167DE44B2BFE5E7C00BC5BAE /* TripInformationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripInformationFormView.swift; sourceTree = "<group>"; };
+		16E98DAA2BFD1D6500B26405 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		E00EF90D2BF6816A00BB26EF /* Budget-Voyage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget-Voyage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E00EF9102BF6816A00BB26EF /* Budget_VoyageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget_VoyageApp.swift; sourceTree = "<group>"; };
+		E00EF9102BF6816A00BB26EF /* Budget_Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget_Voyage.swift; sourceTree = "<group>"; };
 		E00EF9122BF6816A00BB26EF /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		E00EF9142BF6816B00BB26EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E00EF9172BF6816B00BB26EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				E00EF91E2BF6841100BB26EF /* PageModel.swift */,
+				161C035C2C00CE56006BFB9F /* Trip.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -62,6 +73,10 @@
 				E00EF9222BF6846E00BB26EF /* SplashScreenView.swift */,
 				16B786762BF6981D0001957D /* OnBoarding Screens */,
 				E00EF9242BF6848E00BB26EF /* CreateTripView.swift */,
+				167DE44B2BFE5E7C00BC5BAE /* TripInformationFormView.swift */,
+				16E98DAA2BFD1D6500B26405 /* CircularProgressView.swift */,
+				161C035E2C00CFAF006BFB9F /* TripDetailView.swift */,
+				161C03602C00D005006BFB9F /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,7 +116,7 @@
 		E00EF90F2BF6816A00BB26EF /* Budget-Voyage */ = {
 			isa = PBXGroup;
 			children = (
-				E00EF9102BF6816A00BB26EF /* Budget_VoyageApp.swift */,
+				E00EF9102BF6816A00BB26EF /* Budget_Voyage.swift */,
 				16B786732BF697E70001957D /* Model */,
 				16B786742BF697EF0001957D /* View */,
 				16B786752BF697F50001957D /* ViewModel */,
@@ -193,16 +208,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161C035F2C00CFAF006BFB9F /* TripDetailView.swift in Sources */,
 				E00EF92B2BF684F200BB26EF /* TripsView.swift in Sources */,
 				E00EF9132BF6816A00BB26EF /* OnBoardingView.swift in Sources */,
 				E00EF9292BF684D500BB26EF /* BudgetView.swift in Sources */,
 				E00EF92D2BF6850F00BB26EF /* MainNavigationView.swift in Sources */,
+				167DE44C2BFE5E7C00BC5BAE /* TripInformationFormView.swift in Sources */,
 				E00EF9212BF6844500BB26EF /* PageView.swift in Sources */,
 				E00EF9232BF6846E00BB26EF /* SplashScreenView.swift in Sources */,
+				161C035D2C00CE56006BFB9F /* Trip.swift in Sources */,
 				E00EF9252BF6848E00BB26EF /* CreateTripView.swift in Sources */,
 				E00EF9272BF684B400BB26EF /* ListsTripsView.swift in Sources */,
 				E00EF91F2BF6841100BB26EF /* PageModel.swift in Sources */,
-				E00EF9112BF6816A00BB26EF /* Budget_VoyageApp.swift in Sources */,
+				E00EF9112BF6816A00BB26EF /* Budget_Voyage.swift in Sources */,
+				161C03612C00D005006BFB9F /* MainView.swift in Sources */,
+				16E98DAB2BFD1D6500B26405 /* CircularProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Budget-Voyage/Preview Content\"";
+				DEVELOPMENT_TEAM = MGX4V5XP6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -348,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.myorganization.Budget-Voyage";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcartel.Budget-Voyage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -364,6 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Budget-Voyage/Preview Content\"";
+				DEVELOPMENT_TEAM = MGX4V5XP6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -376,7 +398,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.myorganization.Budget-Voyage";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcartel.Budget-Voyage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

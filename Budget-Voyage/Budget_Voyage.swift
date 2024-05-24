@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Budget_Voyage: App {
@@ -13,12 +14,12 @@ struct Budget_Voyage: App {
     
     var body: some Scene {
         WindowGroup {
-//            if isOnboarding {
-//                OnBoardingView()
-//            } else {
-//                SplashScreenView()
-//            }
-            TripInformationFormView()
+            if isOnboarding {
+                OnBoardingView()
+            } else {
+                SplashScreenView()
+            }
         }
+        .modelContainer(for: Trip.self)
     }
 }

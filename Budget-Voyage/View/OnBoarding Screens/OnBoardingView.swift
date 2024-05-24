@@ -57,7 +57,7 @@ struct OnBoardingView: View {
                 .navigationTitle("")
             }
         } else {
-            CreateTripView()
+            MainView()
         }
         
     }

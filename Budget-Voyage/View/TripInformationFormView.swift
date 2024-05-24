@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TripInformationFormView: View {
+    
+    @Environment(\.modelContext) private var context
+    
+    @Query private var trips: [Trip]
     
     @State private var tripName = ""
     @State private var place = ""
@@ -18,42 +23,53 @@ struct TripInformationFormView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Form {
+            Form {
+                Section(header: Text("Trip Details").font(.headline)) {
                     TextField("Name of Trip", text: $tripName)
+                        .padding(.vertical, 10)
                     
                     TextField("Place", text: $place)
-                    
+                        .padding(.vertical, 10)
+                }
+                
+                Section(header: Text("Dates").font(.headline)) {
                     DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
-    //                    .datePickerStyle(.graphical)
-                        .padding()
                     
                     DatePicker("End Date", selection: $endDate, displayedComponents: .date)
-    //                    .datePickerStyle(.graphical)
-                        .padding()
-                    
+                }
+                
+                Section(header: Text("Deposit Plan").font(.headline)) {
                     Picker("Deposit Plan", selection: $selectedDepositPlan) {
                         ForEach(depositPlans, id: \.self) { plan in
                             Text(plan)
                         }
                     }
                     .pickerStyle(.segmented)
-                    
                 }
-                .navigationTitle("Trip Information")
                 
-                Button(action: {
-                    
-                }, label: {
-                    Text("Save")
-                })
+                Section {
+                    NavigationLink(destination: MainView()
+                                    .onAppear(perform: saveTrip)
+                                    .navigationBarBackButtonHidden(true)) {
+                        Text("Save")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.vertical, 10)
+                }
             }
+            .navigationTitle("Trip Information")
         }
+    }
+    
+    func saveTrip() {
+        let trip = Trip(tripName: tripName, place: place, startDate: startDate, endDate: endDate, selectedDepositPlan: selectedDepositPlan)
+        context.insert(trip)
+    }
+    
+    func deleteItem(_ trip: Trip) {
+        context.delete(trip)
     }
 }
 
-
-#Preview {
-    TripInformationFormView()
-        .previewDevice("iPad Pro (11-inch)")
-}
