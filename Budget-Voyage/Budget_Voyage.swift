@@ -10,16 +10,21 @@ import SwiftData
 
 @main
 struct Budget_Voyage: App {
-    @AppStorage("isOnboarding") var isOnboarding: Bool = true
-    
-    var body: some Scene {
-        WindowGroup {
-            if isOnboarding {
-                OnBoardingView()
-            } else {
-                SplashScreenView()
+    //    let modelContainer: ModelContainer
+    //
+    //     init() {
+    //            do {
+    //                modelContainer = try ModelContainer(for: Trip.self)
+    //            } catch {
+    //                fatalError("Could not initialize ModelContainer")
+    //            }
+    //        }
+    //
+        var body: some Scene {
+            WindowGroup {
+                MainView()
             }
+            .modelContainer(for: Trip.self)
+
         }
-        .modelContainer(for: Trip.self)
-    }
 }
