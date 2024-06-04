@@ -15,8 +15,8 @@ struct TripsView: View {
     var body: some View {
         NavigationStack {
             
-            VStack {
-                List {
+            ScrollView {
+                VStack {
                     ForEach(trips) { trip in
                         NavigationLink {
                             

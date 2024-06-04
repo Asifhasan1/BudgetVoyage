@@ -98,21 +98,26 @@ struct CreateTripView: View {
                     .padding()
                 }
                 
-//                Picker("Select Trip", selection: $selectedTripOption) {
-//                    Text("Upcoming").tag(TripOption.upcoming)
-//                    Text("Past").tag(TripOption.past)
-//                }
-//                .pickerStyle(SegmentedPickerStyle())
-//                .padding()
-                List(trips) { trip in
-                     TripCard(trip: trip)
+                Picker("Select Trip", selection: $selectedTripOption) {
+                    Text("Upcoming").tag(TripOption.upcoming)
+                    Text("Past").tag(TripOption.past)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                ScrollView {
+                    VStack {
+                        ForEach(trips) { trip in
+                            TripCard(trip: trip)
+                        }
+                    }
                 }
                 
                 HStack {
                     Spacer()
                     NavigationLink {
                         TripInformationFormView()
-                            .navigationBarBackButtonHidden()
+//                            .navigationBarBackButtonHidden()
                     } label: {
                         AddNewTripButton(icon: "plus", text: "Add New Trip")
                     }

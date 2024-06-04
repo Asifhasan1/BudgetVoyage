@@ -16,15 +16,17 @@ struct BudgetTripListView: View {
     var body: some View {
         NavigationStack {
             
-            List(trips) { trip in
-                NavigationLink {
-                   BudgetView(selectedTrip: trip)
-                } label: {
-                    TripCard(trip: trip)
+            ScrollView {
+                VStack {
+                    ForEach(trips) { trip in
+                        NavigationLink {
+                           BudgetView(selectedTrip: trip)
+                        } label: {
+                            TripCard(trip: trip)
+                        }
+                    }
                 }
-
             }
-            
         }
     }
 }

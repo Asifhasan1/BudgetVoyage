@@ -30,7 +30,7 @@ struct BudgetView: View {
                 VStack {
                     ZStack {
                         Circle()
-                            .trim(from: 0.0, to: 0.75)
+                            .trim(from: 0.0, to: 1.00)
                             .stroke(Color.gray.opacity(0.2), lineWidth: 10)
                             .frame(width: 220, height: 220)
                             .rotationEffect(Angle(degrees: 135))
@@ -39,7 +39,7 @@ struct BudgetView: View {
                             .trim(from: 0.0, to: CGFloat(currentSavings / (Double(selectedTrip.budgetTotal) ?? 0.0)))
                             .stroke(Color(hex: "#582FFF"), lineWidth: 10)
                             .frame(width: 220, height: 220)
-                            .rotationEffect(Angle(degrees: 135))
+                            .rotationEffect(Angle(degrees: 90))
                          
                         VStack {
                             
@@ -66,12 +66,6 @@ struct BudgetView: View {
             if showAlert {
                 CustomAlert(showAlert: $showAlert, amount: $amountEntered, currentSavings: $currentSavings)
             }
-        }
-        .onAppear {
-            print("Current Date \(selectedTrip.currentDate)")
-            print("Days left \(daysLeft)")
-            print("Start Date \(selectedTrip.startDate)")
-            print("End Date \(selectedTrip.endDate)")
         }
     }
 }

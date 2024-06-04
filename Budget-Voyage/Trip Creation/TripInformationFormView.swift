@@ -56,39 +56,41 @@ struct TripInformationFormView: View {
                 DatePicker(
                     "Start Date",
                     selection: $startDate,
+                    in: Date()..., // This restricts the date to today and future dates
                     displayedComponents: [.date]
                 )
                 
                 DatePicker(
                     "End Date",
                     selection: $endDate,
+                    in: Date()..., // This restricts the date to today and future dates
                     displayedComponents: [.date]
                 )
                 
                 VStack {
-//                    if let selectedImage = selectedImage {
-//                        Image(uiImage: selectedImage)
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(height: 200)
-//                    } else {
-//                        Text("No Image Selected")
-//                            .foregroundColor(.gray)
-//                    }
+                    //                    if let selectedImage = selectedImage {
+                    //                        Image(uiImage: selectedImage)
+                    //                            .resizable()
+                    //                            .scaledToFit()
+                    //                            .frame(height: 200)
+                    //                    } else {
+                    //                        Text("No Image Selected")
+                    //                            .foregroundColor(.gray)
+                    //                    }
                     
-//                    Button(action: {
-//                        isShowingImagePicker = true
-//                    }) {
-//                        Text("Upload Image")
-//                            .padding()
-//                            .background(Color.blue)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(8)
-//                    }
-//                    .padding()
-//                    .sheet(isPresented: $isShowingImagePicker, onDismiss: addSelectedImage) {
-//                        ImagePicker(selectedImage: $selectedImage)
-//                    }
+                    //                    Button(action: {
+                    //                        isShowingImagePicker = true
+                    //                    }) {
+                    //                        Text("Upload Image")
+                    //                            .padding()
+                    //                            .background(Color.blue)
+                    //                            .foregroundColor(.white)
+                    //                            .cornerRadius(8)
+                    //                    }
+                    //                    .padding()
+                    //                    .sheet(isPresented: $isShowingImagePicker, onDismiss: addSelectedImage) {
+                    //                        ImagePicker(selectedImage: $selectedImage)
+                    //                    }
                 }
                 
                 TextField("Amount to Save", text: $budgetTotal)
