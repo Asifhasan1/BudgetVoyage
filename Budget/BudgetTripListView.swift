@@ -14,15 +14,20 @@ struct BudgetTripListView: View {
     @Query  var trips: [Trip]
     
     var body: some View {
+        
         NavigationStack {
             
-            ScrollView {
-                VStack {
-                    ForEach(trips) { trip in
-                        NavigationLink {
-                           BudgetView(selectedTrip: trip)
-                        } label: {
-                            TripCard(trip: trip)
+            ZStack {
+                Color(hex: "#0B5351")
+                    .ignoresSafeArea()
+                ScrollView {
+                    VStack {
+                        ForEach(trips) { trip in
+                            NavigationLink {
+                               BudgetView(selectedTrip: trip)
+                            } label: {
+                                TripCard(trip: trip)
+                            }
                         }
                     }
                 }

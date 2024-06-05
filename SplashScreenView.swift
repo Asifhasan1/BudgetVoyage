@@ -18,15 +18,15 @@ struct SplashScreenView: View {
         } else {
             
             ZStack {
-                Color.white
+                Color(hex: "#0B5351")
                     .ignoresSafeArea()
                 VStack {
-//                    Image("Splash")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 400, height: 400)
+                    Image("appIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 400, height: 400)
                     Text("Budget Voyage")
-                       // .font(Font.custom("Baskerville-Bold", size: 26))
+                        .font(Font.custom("Baskerville-Bold", size: 26))
                 }
                 .scaleEffect(size)
                 .opacity(opacity)

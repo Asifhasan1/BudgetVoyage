@@ -31,9 +31,14 @@ struct MainView: View {
                     Label("Checklists", systemImage: "list.bullet")
                 }
         }
-        .tint(Color(hex: "#582FFF"))
+        .accentColor(Color.white) // Set the tab bar items color to white
+        .background(Color(hex: "#582FFF")) // Set the tab bar background color
+        .environment(\.colorScheme, .dark) // Set the color scheme to dark mode for preview
     }
 }
+
+
+
 
 #Preview {
     MainView()

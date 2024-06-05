@@ -21,8 +21,8 @@ struct AddNewTripButton: View {
         }
         .padding()
         .padding(.horizontal)
-        .background(Color(hex: "#582FFF"))
-        .cornerRadius(25)
+        .background(Color(hex: "#BDC487"))
+        .cornerRadius(10)
     }
 }
 

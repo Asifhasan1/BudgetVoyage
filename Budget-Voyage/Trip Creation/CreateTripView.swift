@@ -62,7 +62,7 @@ import SwiftUI
 import SwiftData
 
 enum TripOption {
-    case upcoming
+    case upcoming  
     case past
 }
 struct CreateTripView: View {
@@ -74,56 +74,70 @@ struct CreateTripView: View {
     var filteredTrips: [Trip] {
         switch selectedTripOption {
         case .upcoming:
-            return trips.filter { $0.currentDate > Date() }
+            return trips.filter { $0.startDate > Date() }
         case .past:
-            return trips.filter { $0.currentDate <= Date() }
+            return trips.filter { $0.startDate <= Date() }
         }
     }
     
     var body: some View {
+        
         NavigationStack {
-            VStack {
+            ZStack {
+                Color(hex: "#0B5351")
+                    .ignoresSafeArea()
                 VStack {
-                    HStack {
-                        Image("suitcase")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                            .clipShape(Circle())
-                        VStack(alignment: .leading) {
-                            Text("Saved Trips")
-                                .font(.title)
-                                .fontWeight(.bold)
-                        }
-                    }
-                    .padding()
-                }
-                
-                Picker("Select Trip", selection: $selectedTripOption) {
-                    Text("Upcoming").tag(TripOption.upcoming)
-                    Text("Past").tag(TripOption.past)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                
-                ScrollView {
                     VStack {
-                        ForEach(trips) { trip in
-                            TripCard(trip: trip)
+                        HStack {
+                            Image("suitcase")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                            VStack(alignment: .leading) {
+                                Text("Saved Trips")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                            }
+                        }
+                        .padding()
+                    }
+                    
+                    Picker("Select Trip", selection: $selectedTripOption) {
+                        Text("Upcoming").tag(TripOption.upcoming)
+                        Text("Past").tag(TripOption.past)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+                    
+                    ScrollView {
+                        VStack {
+                            ForEach(filteredTrips) { trip in
+                                NavigationLink {
+                                    TripDetailView(selectedTrip: trip)
+                                } label: {
+                                    TripCard(trip: trip)
+                                }
+                            }
+                            .onDelete { indexes in
+                                for index in indexes {
+                                    deleteItem(trips[index])
+                                }
+                            }
                         }
                     }
-                }
-                
-                HStack {
-                    Spacer()
-                    NavigationLink {
-                        TripInformationFormView()
-//                            .navigationBarBackButtonHidden()
-                    } label: {
-                        AddNewTripButton(icon: "plus", text: "Add New Trip")
+                    
+                    HStack {
+                        NavigationLink {
+                            TripInformationFormView()
+                            //                            .navigationBarBackButtonHidden()
+                        } label: {
+                            AddNewTripButton(icon: "plus", text: "Add New Trip")
+                        }
                     }
                 }
             }
         }
+        
         
     }
     

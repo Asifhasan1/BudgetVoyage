@@ -1,112 +1,112 @@
-//
-//  CheckListView.swift
-//  Budget Voyage Final
-//
-//  Created by Min Thu Khine on 6/3/24.
-//
-import SwiftData
+
 import SwiftUI
+import SwiftData
 
 struct TaskItem: Identifiable {
     let id = UUID()
     var name: String
     var isCompleted: Bool = false
-    
 }
 
 struct CheckListView: View {
-    
     @State private var isAddCheckListSheetVisible = false
     @State private var tasks = [TaskItem]()
     @State private var isCompleteTaskAlert = false
     @State private var isAllTasksCompleted = false
     
     var completedTasks: Int {
-        tasks.filter{$0.isCompleted}.count
+        tasks.filter { $0.isCompleted }.count
     }
     
     var totalTasks: Int {
         tasks.count
     }
     
-    var percentComplete : CGFloat {
-        
-        if tasks.isEmpty{
+    var percentComplete: CGFloat {
+        if tasks.isEmpty {
             return 0
         } else {
-            return Double(completedTasks) / Double(totalTasks)
+            return CGFloat(completedTasks) / CGFloat(totalTasks)
         }
     }
-
     
     var body: some View {
-        
-        VStack {
+        ZStack {
+            Color(hex: "#0B5351")
+                .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 HStack {
-                    Image("checklisticon")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .background(Color.purple)
-                        .clipShape(Circle())
-                    VStack(alignment: .leading) {
-                        Text("Travel Checklist")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Text("Make a checklist for your trip")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                    Text("Travel Checklist")
+                        .font(Font.custom("Hiragino Mincho ProN", size: 25))
+                        .foregroundStyle(.white)
+                        .padding()
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        isAddCheckListSheetVisible = true
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.green)
                     }
+                    .sheet(isPresented: $isAddCheckListSheetVisible) {
+                        AddCheckListView(tasks: $tasks, sheetVisible: $isAddCheckListSheetVisible)
+                    }
+                    .padding()
                 }
+                .background(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.orange, lineWidth: 2))
                 .padding()
-            }
-            
-            List {
-                
-                ForEach(tasks) { item in
-                    HStack {
-                        Text(item.name)
-                        Spacer()
-                        Button(action: {
-                            print(completedTasks)
-                            print("___")
-                            print(totalTasks)
-                            toggleCompletion(for: item)
-                            if completedTasks  == totalTasks {
-                                isCompleteTaskAlert = true
-                                //                                    tasks = []
+                 
+                ScrollView {
+                    VStack {
+                        ForEach(tasks) { item in
+                            HStack {
+                                Text(item.name)
+                                    .font(.headline)  // Adding a font style
+                                    .foregroundColor(.primary)  // Setting a primary color
+                                    .padding(.leading, 10)  // Adding padding to the leading side
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    toggleCompletion(for: item)
+                                    if completedTasks == totalTasks {
+                                        isCompleteTaskAlert = true
+                                    }
+                                }) {
+                                    Image(systemName: item.isCompleted ? "checkmark.square.fill" : "square")
+                                        .resizable()  // Make the image resizable
+                                        .frame(width: 24, height: 24)  // Setting a larger frame size
+                                        .foregroundColor(item.isCompleted ? .green : .white)  // Color change based on completion
+                                        .padding(10)  // Adding padding
+                                        .background(Color.gray.opacity(0.1))  // Adding a subtle background
+                                        .clipShape(Circle())
+                                }
+                                .accessibility(label: Text(item.isCompleted ? "Mark as incomplete" : "Mark as complete"))
                             }
+                            .padding()  // Adding overall padding
+                            .background(.gray)  // Adding a background color
+                            .cornerRadius(25)  // Rounding the corners
+                            .shadow(radius: 2)
                             
-                            
-                        }, label: {
-                            Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                        })
+                            .background(.gray)
+                        }
+                         
+                        .onMove(perform: move) 
+                        //                    .onDelete(perform: deleteTask)
                         
                     }
+                    .padding()
+                    .listStyle(PlainListStyle())
                 }
-              
-             
-                .onMove(perform: move)
-                .onDelete(perform: deleteTask)
-               
-             
                 
-            }
-            
-            HStack {
                 Spacer()
-                Button(action: {
-                    isAddCheckListSheetVisible = true
-                }, label: {
-                    AddNewTripButton(icon: "plus", text: "Add New List")
-                })
-                .sheet(isPresented: $isAddCheckListSheetVisible, content: {
-                    AddCheckListView(tasks: $tasks, sheetVisible: $isAddCheckListSheetVisible)
-                })
             }
-            .padding()
         }
-        
     }
     
     func toggleCompletion(for task: TaskItem) {
@@ -114,20 +114,19 @@ struct CheckListView: View {
         if let index = tasks.firstIndex(where: { $0.id == task.id }) {
             tasks[index].isCompleted.toggle()
         }
-        
     }
     
-    
-    func deleteTask(at offsets: IndexSet) {
-        tasks.remove(atOffsets: offsets)
-    }
+    //    func deleteTask(at offsets: IndexSet) {
+    //        move(atOffsets: offsets)
+    //    }
     
     func move(from source: IndexSet, to destination: Int) {
         tasks.move(fromOffsets: source, toOffset: destination)
     }
 }
 
-
-#Preview {
-    CheckListView()
+struct CheckListView_Previews: PreviewProvider {
+    static var previews: some View {
+        CheckListView()
+    }
 }

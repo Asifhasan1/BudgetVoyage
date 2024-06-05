@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct Budget_Voyage: App {
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
     //    let modelContainer: ModelContainer
     //
     //     init() {
@@ -22,7 +23,11 @@ struct Budget_Voyage: App {
     //
         var body: some Scene {
             WindowGroup {
-                MainView()
+                if isOnboarding {
+                    OnBoardingView()
+                } else {
+                    SplashScreenView()
+                }
             }
             .modelContainer(for: Trip.self)
 

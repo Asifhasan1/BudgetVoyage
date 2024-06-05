@@ -24,47 +24,49 @@ struct BudgetView: View {
     var body: some View {
         
         ZStack {
-            VStack {
-                Spacer()
-                
+            Color(hex: "#0B5351")
+                .ignoresSafeArea()
+            ZStack {
                 VStack {
-                    ZStack {
-                        Circle()
-                            .trim(from: 0.0, to: 1.00)
-                            .stroke(Color.gray.opacity(0.2), lineWidth: 10)
-                            .frame(width: 220, height: 220)
-                            .rotationEffect(Angle(degrees: 135))
-                        
-                        Circle()
-                            .trim(from: 0.0, to: CGFloat(currentSavings / (Double(selectedTrip.budgetTotal) ?? 0.0)))
-                            .stroke(Color(hex: "#582FFF"), lineWidth: 10)
-                            .frame(width: 220, height: 220)
-                            .rotationEffect(Angle(degrees: 90))
-                         
-                        VStack {
+                    VStack {
+                        ZStack {
+                            Circle()
+                                .trim(from: 0.0, to: 1.00)
+                                .stroke(Color.gray.opacity(0.2), lineWidth: 10)
+                                .frame(width: 220, height: 220)
+                                .rotationEffect(Angle(degrees: 135))
                             
-                            Text("$\(Int(currentSavings)) / $\(Int(selectedTrip.budgetTotal) ?? 0)")
-                                .foregroundStyle(.black)
-                                .bold()
-                            
-                            Text("\(daysLeft) Days left to save")
-                                .font(.subheadline)
-                                .foregroundColor(.purple)
-                                           
+                            Circle()
+                                .trim(from: 0.0, to: CGFloat(currentSavings / (Double(selectedTrip.budgetTotal) ?? 0.0)))
+                                .stroke(Color.black, lineWidth: 10)
+                                .frame(width: 220, height: 220)
+                                .rotationEffect(Angle(degrees: 90))
+                             
+                            VStack {
+                                
+                                Text("$\(Int(currentSavings)) / $\(Int(selectedTrip.budgetTotal) ?? 0)")
+                                    .foregroundStyle(.black)
+                                    .bold()
+                                
+                                Text("\(daysLeft) Days left to save")
+                                    .font(.subheadline)
+                                    .foregroundColor(.black)
+                                               
+                            }
                         }
+                        .padding(.top, 40)
                     }
-                    .padding(.top, 40)
+                    
+                    AddNewTripButton(icon: "square.and.arrow.down", text: "Save")
+                        .onTapGesture {
+                            showAlert = true
+                        }
                 }
+                .navigationBarTitle("Set Budgets", displayMode: .inline)
                 
-                AddNewTripButton(icon: "square.and.arrow.down", text: "Save")
-                    .onTapGesture {
-                        showAlert = true
-                    }
-            }
-            .navigationBarTitle("Set Budgets", displayMode: .inline)
-            
-            if showAlert {
-                CustomAlert(showAlert: $showAlert, amount: $amountEntered, currentSavings: $currentSavings)
+                if showAlert {
+                    CustomAlert(showAlert: $showAlert, amount: $amountEntered, currentSavings: $currentSavings)
+                }
             }
         }
     }
@@ -93,7 +95,11 @@ struct CustomAlert: View {
                     .padding()
                     .background(Color.white)
                     .cornerRadius(5)
-                    .keyboardType(.decimalPad)
+                    .keyboardType(.decimalPad) 
+                    .foregroundStyle(.black)
+//                    .placeholder(when: amount.isEmpty, placeholder: "Enter Amount", placeholderColor: .gray)
+//                    .underlineTextField()
+                
                 
                 HStack {
                     Button(action: {
@@ -122,7 +128,7 @@ struct CustomAlert: View {
                 }
             }
             .padding()
-            .background(Color.white)
+            .background(Color.cyan)
             .cornerRadius(10)
             .shadow(radius: 20)
             .padding(.horizontal, 40)

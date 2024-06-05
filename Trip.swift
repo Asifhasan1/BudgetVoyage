@@ -21,15 +21,23 @@ class Trip {
 //    let tripImage: UIImage
     var currentDate: Date
     let budgetTotal: String
+    var accommodation: String?
+    var transportation: String?
+    var activities: [String]
+    var notes: String?
     
-    init(tripName: String, place: String, startDate: Date, endDate: Date, budgetTotal: String) {
-        id = UUID().uuidString
-        self.tripName = tripName
-        self.place = place
-        self.startDate = startDate
-        self.endDate = endDate
-        currentDate = Date()
-        self.budgetTotal = budgetTotal
-    }
+    init(tripName: String, place: String, startDate: Date, endDate: Date, budgetTotal: String, accommodation: String? = nil, transportation: String? = nil, activities: [String] = [], notes: String? = nil) {
+           id = UUID().uuidString
+           self.tripName = tripName
+           self.place = place
+           self.startDate = startDate
+           self.endDate = endDate
+           currentDate = Date()
+           self.budgetTotal = budgetTotal
+           self.accommodation = accommodation
+           self.transportation = transportation
+           self.activities = activities
+           self.notes = notes
+       }
 }
 

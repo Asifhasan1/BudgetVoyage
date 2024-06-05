@@ -35,6 +35,7 @@ struct TripCard: View {
                         }
                         Text(trip.place)
                             .font(Font.custom("Hiragino Mincho ProN", size: 22))
+                            .foregroundColor(.black)
                             .fontWeight(.bold)
                         
                         HStack(spacing: 5) {
@@ -47,6 +48,7 @@ struct TripCard: View {
                         }
                         Text("\(formattedDate(startDate: trip.startDate, endDate: trip.endDate))")
                             .font(Font.custom("Hiragino Mincho ProN", size: 18))
+                            .foregroundColor(.black)
                     }
                     .padding(.leading)
                     
@@ -58,7 +60,7 @@ struct TripCard: View {
                 .shadow(radius: 5)
 //                .padding(.horizontal)
             }
-//            .padding(.top, 20)
+            .padding(10)
         }
     }
     

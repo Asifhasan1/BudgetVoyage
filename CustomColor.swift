@@ -37,13 +37,16 @@ extension Color {
 
 extension Color {
     static let darkPink = Color(hex: "#582FFF")
+    static let ourOwnColor = Color(hex: "#0B5351")
+    // button color BDC487
 }
+
 extension View {
     func underlineTextField() -> some View {
         self
             .padding(.vertical, 10)
             .overlay(Rectangle().frame(height: 2).padding(.top, 35))
-            .foregroundColor(.darkPink)
+            .foregroundColor(Color(hex: "#BDC487"))
             .padding(10)
     }
 }
